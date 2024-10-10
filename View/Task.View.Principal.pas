@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.TabControl, FMX.Layouts, FMX.ListBox, FMX.StdCtrls, FMX.Edit, FMX.Objects, FMX.Effects,
   FMX.Controls.Presentation,
-  Task.Controller.Task, FMX.ScrollBox, FMX.Memo;
+  Task.Controller.Task, FMX.ScrollBox, FMX.Memo, FMX.Memo.Types;
 
 type
   TFPrincipal = class(TForm)
@@ -116,7 +116,7 @@ begin
   lbLista.BeginUpdate;
   try
     lbLista.Clear;
-    for LEntidade in FTask.Model.Find do
+    for LEntidade in FTask.Find do
     begin
       LLBItem := TListBoxItem.Create(lbLista);
       LLBItem.Parent := lbLista;
@@ -203,14 +203,14 @@ begin
     begin
       FTask.Entidade.Titulo := edNovoTitulo.Text;
       FTask.Entidade.Descricao := edNovoDetalhamento.Text;
-      FTask.Model.Insert(FTask.Entidade);
+      FTask.Insert(FTask.Entidade);
     end;
   end
   else
   begin
     FTask.Entidade.Titulo := edNovoTitulo.Text;
     FTask.Entidade.Descricao := edNovoDetalhamento.Text;
-    FTask.Model.Update(FTask.Entidade);
+    FTask.Update(FTask.Entidade);
   end;
   CarregarLista;
   TabControl.ActiveTab := tiLista;
@@ -218,7 +218,7 @@ end;
 
 procedure TFPrincipal.btEdit_ExcluirClick(Sender: TObject);
 begin
-  FTask.Model.Delete(FTask.Entidade.Codigo);
+  FTask.Delete(FTask.Entidade.Codigo);
   CarregarLista;
   TabControl.ActiveTab := tiLista;
 end;
