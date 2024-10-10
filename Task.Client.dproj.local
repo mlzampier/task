@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/08/27 15:00:34.000.188,=C:\Users\Marlon Zampier\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/10/09 10:36:39.000.829,=C:\Users\Marlon Zampier\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/10/09 10:36:50.000.969,C:\Users\Marlon Zampier\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Marlon Zampier\Documents\Embarcadero\Studio\Projects\Task.Client.dproj</Transaction>
+    <Transaction>2024/10/09 10:37:35.000.228,C:\Users\Marlon Zampier\Documents\Embarcadero\Studio\Projects\Unit1.fmx=D:\Marlon\Task\View\Task.View.Principal.fmx</Transaction>
+    <Transaction>2024/10/09 10:37:35.000.228,C:\Users\Marlon Zampier\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Marlon\Task\View\Task.View.Principal.pas</Transaction>
+    <Transaction>2024/10/09 10:37:41.000.871,C:\Users\Marlon Zampier\Documents\Embarcadero\Studio\Projects\Task.Client.dproj=D:\Marlon\Task\Task.Client.dproj</Transaction>
+    <Transaction>2024/10/09 13:02:35.000.629,=D:\Marlon\Task\Define\Task.Define.Constantes.pas</Transaction>
+    <Transaction>2024/10/09 13:02:53.000.312,=D:\Marlon\Task\Unit1.pas</Transaction>
+    <Transaction>2024/10/09 13:03:17.000.376,D:\Marlon\Task\Unit1.pas=D:\Marlon\Task\Define\Task.Define.Constantes.Client.pas</Transaction>
+    <Transaction>2024/10/09 13:44:09.000.149,=D:\Marlon\Task\Unit1.pas</Transaction>
+    <Transaction>2024/10/09 13:46:21.000.409,D:\Marlon\Task\Unit1.pas=D:\Marlon\Task\Controller\Task.Controller.Client.pas</Transaction>
+    <Transaction>2024/10/09 14:06:58.000.626,=D:\Marlon\Task\Unit1.pas</Transaction>
+    <Transaction>2024/10/09 14:07:38.000.401,D:\Marlon\Task\Unit1.pas=D:\Marlon\Task\Model\Task.Model.Client.pas</Transaction>
+    <Transaction>2024/10/09 14:07:55.000.230,=D:\Marlon\Task\Model\Task.Model.Interfaces.pas</Transaction>
+    <Transaction>2024/10/09 14:08:05.000.558,=D:\Marlon\Task\Model\Entidade\Task.Model.Entidade.pas</Transaction>
+    <Transaction>2024/10/09 14:08:05.000.650,=D:\Marlon\Task\Model\Entidade\Task.Model.Entidade.Task.pas</Transaction>
+    <Transaction>2024/10/09 14:28:55.000.471,=D:\Marlon\Task\Unit1.pas</Transaction>
+    <Transaction>2024/10/09 14:37:06.000.909,D:\Marlon\Task\Unit1.pas=D:\Marlon\Task\Controller\Task.Controller.Login.pas</Transaction>
+    <Transaction>2024/10/09 14:51:21.000.339,=D:\Marlon\Task\Controller\Task.Controller.Task.pas</Transaction>
+    <Transaction>2024/10/09 14:51:56.000.545,=D:\Marlon\Task\Controller\Task.Controller.pas</Transaction>
+    <Transaction>2024/10/09 14:52:32.000.551,=D:\Marlon\Task\Controller\Task.Controller.Interfaces.pas</Transaction>
+  </Transactions>
+</BorlandProject>
