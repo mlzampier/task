@@ -2,7 +2,7 @@ unit Task.Model.Client;
 
 interface
 
-uses System.SysUtils, System.Classes, Variants, System.JSON, REST.JSON, Data.DB, StrUtils,
+uses System.SysUtils, System.Classes, Variants, System.JSON, REST.JSON, Data.DB, StrUtils, System.Generics.Collections,
   Task.Model.Entidade, Task.Model.Interfaces,
   RESTRequest4D;
 
