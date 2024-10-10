@@ -31,7 +31,7 @@ var
   LEntidades: TArray<TEntidade>;
   LJsonArray: TJSONArray;
 begin
-  LEntidades := Controller.Model.Find;
+  LEntidades := Controller.Find;
   try
     LJsonArray := TJSONArray.Create;
     for I := Low(LEntidades) to High(LEntidades) do
@@ -53,7 +53,7 @@ begin
       .Error('Id do registro inválido')
       .Status(THTTPStatus.BadRequest);
 
-  LEntidade := Controller.Model.Find(StrToInt(LId));
+  LEntidade := Controller.Find(StrToInt(LId));
   try
     Res.Send<TJSONObject>(TJson.ObjectToJsonObject(LEntidade)).Status(THTTPStatus.OK);
   finally
@@ -75,7 +75,7 @@ begin
   LEntidade := pEntidade.Create;
   try
     TJson.JsonToObject(LEntidade, LJson);
-    Controller.Model.Insert(LEntidade);
+    Controller.Insert(LEntidade);
   finally
     LEntidade.Free;
     LJson.Free;
@@ -97,7 +97,7 @@ begin
   LEntidade := pEntidade.Create;
   try
     TJson.JsonToObject(LEntidade, LJson);
-    Controller.Model.Update(LEntidade);
+    Controller.Update(LEntidade);
   finally
     LEntidade.Free;
     LJson.Free;
@@ -114,7 +114,7 @@ begin
       .Error('Id do registro inválido')
       .Status(THTTPStatus.BadRequest);
 
-  Controller.Model.Delete(StrToInt(LId));
+  Controller.Delete(StrToInt(LId));
   Res.Status(THTTPStatus.OK).Send('Sucesso');
 end;
 
@@ -132,9 +132,8 @@ begin
 
     Swagger.Path(pPath)
       .Tag(pPath)
-      .Get('List', 'List Records')
-        //.AddParamBody('Filters', 'Filters in Json').Schema(xxxxx).IsArray(True).&End
-        //.AddResponse(Integer(THTTPStatus.OK), 'Successful Operation').Schema(pEntidade).IsArray(True).&End
+      .Get('List', 'List All Records')
+        .AddResponse(Integer(THTTPStatus.OK), 'Successful Operation').{Schema(pEntidade).}IsArray(True).&End
         .AddResponse(Integer(THTTPStatus.BadRequest), 'Bad Request').Schema(TAPIError).&End
         .AddResponse(Integer(THTTPStatus.InternalServerError), 'Internal Server Error').Schema(TAPIError).&End
         .AddSecurity('Bearer');
@@ -154,7 +153,7 @@ begin
       .Tag(pPath)
       .Get('Record of Id')
         .AddParamPath('ID', 'Id of Record').&End
-        //.AddResponse(Integer(THTTPStatus.OK), 'Successful Operation').Schema(pEntidade).&End
+        .AddResponse(Integer(THTTPStatus.OK), 'Successful Operation').{Schema(pEntidade).}&End
         .AddResponse(Integer(THTTPStatus.BadRequest), 'Bad Request').Schema(TAPIError).&End
         .AddResponse(Integer(THTTPStatus.NotFound), 'Not Found').Schema(TAPIError).&End
         .AddResponse(Integer(THTTPStatus.InternalServerError), 'Internal Server Error').Schema(TAPIError).&End
@@ -174,7 +173,7 @@ begin
     Swagger.Path(pPath)
       .Tag(pPath)
       .Post('Insert', 'Insert Record')
-        //.AddParamBody('Record', 'Record in Json').Schema(pEntidade).IsArray(True).&End
+        .AddParamBody('Record', 'Record in Json').{Schema(pEntidade).}&End
         .AddResponse(Integer(THTTPStatus.OK), 'Successful Operation').&End
         .AddResponse(Integer(THTTPStatus.InternalServerError), 'Internal Server Error').Schema(TAPIError).&End
         .AddSecurity('Bearer');
@@ -193,7 +192,7 @@ begin
     Swagger.Path(pPath)
       .Tag(pPath)
       .Put('Update', 'Update of Id')
-        //.AddParamBody('Record', 'Record in Json').Schema(pEntidade).IsArray(True).&End
+        .AddParamBody('Record', 'Record in Json').{Schema(pEntidade).}&End
         .AddResponse(Integer(THTTPStatus.OK), 'Successful Operation').&End
         .AddResponse(Integer(THTTPStatus.BadRequest), 'Bad Request').Schema(TAPIError).&End
         .AddResponse(Integer(THTTPStatus.NotFound), 'Not Found').Schema(TAPIError).&End

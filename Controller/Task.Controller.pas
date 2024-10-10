@@ -16,8 +16,11 @@ type
 
     class function New: iController;
 
-    function Model: iModel;
-    function &End: iController;
+    function Find: TArray<TEntidade>; overload;
+    function Find(const aId: Integer): TEntidade; overload;
+    function Insert(const aValue: TEntidade): iModel;
+    function Update(const aValue: TEntidade): iModel;
+    function Delete(const aId: Integer): iModel;
   end;
 
   TControllerEntidade<T: TEntidade, constructor> = class(TControllerModel)
@@ -39,7 +42,7 @@ end;
 
 destructor TControllerModel.Destroy;
 begin
-
+  FModel := nil;
   inherited;
 end;
 
@@ -48,14 +51,29 @@ begin
   Result := Self.Create;
 end;
 
-function TControllerModel.Model: iModel;
+function TControllerModel.Find: TArray<TEntidade>;
 begin
-  Result := FModel;
+  Result := FModel.Find;
 end;
 
-function TControllerModel.&End: iController;
+function TControllerModel.Find(const aId: Integer): TEntidade;
 begin
-  Result := FParent;
+  Result := FModel.Find(aId);
+end;
+
+function TControllerModel.Insert(const aValue: TEntidade): iModel;
+begin
+  Result := FModel.Insert(aValue);
+end;
+
+function TControllerModel.Update(const aValue: TEntidade): iModel;
+begin
+  Result := FModel.Update(aValue);
+end;
+
+function TControllerModel.Delete(const aId: Integer): iModel;
+begin
+  Result := FModel.Delete(aId);
 end;
 
 { TControllerEntidade<T> }
